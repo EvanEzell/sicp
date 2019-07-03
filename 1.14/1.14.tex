@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath,amsthm,amsfonts,float}
+\usepackage{color,graphicx}
+\usepackage[square, numbers, comma, sort&compress]{natbib}
+\usepackage{tikz}
+
+
+\title{SICP Exercise 1.14}
+\author{Evan Ezell}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\begin{tikzpicture}[every node/.style = {shape=rectangle, rounded corners,draw, align=center,top color=white, bottom color=blue!20}]]
+  \node {(count-change 11)}
+    child { node {(cc 11 5)} 
+      child { node {(cc 11 4)}
+        child { node {(cc 11 3)} 
+		  child { node {(cc 11 2)} 
+		    child { node {(cc 11 1)} 
+			  child { node {(cc 11 0)} }
+			  child { node {(cc 10 1)} 
+			    child { node {(cc 10 0)} }
+			    child { node {(cc 9 1)} 
+				  child { node {(cc 9 0)} }
+				  child { node {(cc 8 1)} 
+				    child { node {(cc 8 0)} }
+				    child { node {(cc 7 1)} 
+				      child { node {(cc 7 0)} }
+				      child { node {(cc 6 1)} }
+				    }
+				  }
+				}
+			  }
+			}
+			child { node {(cc 6 2)} 
+			  child { node {(cc 6 1)} }
+			  child { node {(cc 1 2)} }
+			}
+		  }
+		  child { node {(cc 1 3)} }
+		}
+        child { node {(cc -14 4)} }
+	  }
+      child { node {(cc -39 5)} }
+	};
+\end{tikzpicture}
+\end{center}
+
+\end{document}

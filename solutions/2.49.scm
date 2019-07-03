@@ -1,0 +1,56 @@
+; Exercise 2.49
+; Author: Evan Ezell
+
+(define outline-painter
+  (let ((segment-list (list (make-segment (make-vect 0 0) (make-vect 0 1))
+                            (make-segment (make-vect 0 1) (make-vect 1 1))
+                            (make-segment (make-vect 1 1) (make-vect 1 0))
+                            (make-segment (make-vect 1 0) (make-vect 0 0)))))
+    (segments->painter segment-list)))
+
+(define x-painter
+  (let ((segment-list (list (make-segment (make-vect 0 0) (make-vect 1 1))
+                            (make-segment (make-vect 1 0) (make-vect 0 1)))))
+    (segments->painter segment-list)))
+
+(define diamond-painter
+  (let ((segment-list (list (make-segment (make-vect 0.5 0.0) (make-vect 1.0 0.5))
+                            (make-segment (make-vect 1.0 0.5) (make-vect 0.5 1.0))
+                            (make-segment (make-vect 0.5 1.0) (make-vect 0.0 0.5))
+                            (make-segment (make-vect 0.0 0.5) (make-vect 0.5 0.0)))))
+    (segments->painter segment-list)))
+
+(define wave-painter
+  (let ((segment-list (list (make-segment (make-vect 0.50 0.40)
+                                          (make-vect 0.60 0.00))
+                            (make-segment (make-vect 0.50 0.40)
+                                          (make-vect 0.40 0.00))
+                            (make-segment (make-vect 0.30 0.00)
+                                          (make-vect 0.35 0.65))
+                            (make-segment (make-vect 0.35 0.65)
+                                          (make-vect 0.15 0.55))
+                            (make-segment (make-vect 0.15 0.55)
+                                          (make-vect 0.00 0.80))
+                            (make-segment (make-vect 0.00 0.90)
+                                          (make-vect 0.20 0.70))
+                            (make-segment (make-vect 0.20 0.70)
+                                          (make-vect 0.30 0.75))
+                            (make-segment (make-vect 0.30 0.75)
+                                          (make-vect 0.40 0.75))
+                            (make-segment (make-vect 0.40 0.75)
+                                          (make-vect 0.35 0.90))
+                            (make-segment (make-vect 0.35 0.90)
+                                          (make-vect 0.40 1.00))
+                            (make-segment (make-vect 0.55 1.00)
+                                          (make-vect 0.60 0.90))
+                            (make-segment (make-vect 0.60 0.90)
+                                          (make-vect 0.55 0.75))
+                            (make-segment (make-vect 0.55 0.75)
+                                          (make-vect 0.65 0.75))
+                            (make-segment (make-vect 0.65 0.75)
+                                          (make-vect 1.00 0.45))
+                            (make-segment (make-vect 1.00 0.30)
+                                          (make-vect 0.60 0.65))
+                            (make-segment (make-vect 0.60 0.65)
+                                          (make-vect 0.70 0.00))))) 
+    (segments->painter segment-list)))

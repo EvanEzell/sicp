@@ -1,0 +1,13 @@
+; Exercise 2.44
+; Author: Evan Ezell
+
+#lang sicp
+(#%require sicp-pict)
+
+(define (up-split painter n)
+  (if (= n 0)
+      painter
+      (let ((smaller (up-split painter (- n 1))))
+        (below painter (beside smaller smaller)))))
+
+(paint (up-split einstein 1))
