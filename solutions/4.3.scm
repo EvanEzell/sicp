@@ -47,4 +47,4 @@
 
 (put 'eval 'cond 
      (lambda (exp env)
-        ((cond? exp) (eval (cond->if exp) env))))
+        (eval (cond->if exp) env)))
