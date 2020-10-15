@@ -30,7 +30,7 @@
 (define (exp-list exp)
   (cdr exp))
 
-; Alternative soloution, as a macro:
+; Alternative solution, as a macro:
 
 (put 'eval 'and
      (lambda (exp env) (and->if exp)))
