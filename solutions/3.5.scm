@@ -30,9 +30,9 @@
   (* (rect-area x1 y1 x2 y2) (monte-carlo trials test)))
 
 (define (circle-predicate x y r)
-  (lambda (user-x user-y)
-    (< (+ (square (- user-x x))
-          (square (- user-y y)))
+  (lambda (test-x test-y)
+    (< (+ (square (- test-x x))
+          (square (- test-y y)))
        (* r r))))
 
 (define (estimate-pi trials)
