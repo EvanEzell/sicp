@@ -1,6 +1,8 @@
 ;;; Exercise 3.7
 ;;; Author: Evan Ezell
 
+; did not modify code from Exercise 3.3
+
 (define (make-account balance password)
   (define (withdraw amount)
     (if (>= balance amount)
