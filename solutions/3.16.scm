@@ -8,17 +8,19 @@
          (count-pairs (cdr x))
          1)))
 
-(count-pairs (cons (cons 'a '()) (cons 'b '())))
+(count-pairs (list 'a 'b 'c))
 ; 3
 
-(count-pairs (cons (cons 'a '()) (cons (cons 'c '()) '())))
+(define w (cons 'a 'b))
+(define x (cons w 'd))
+
+(count-pairs (cons w x))
 ; 4
 
-(count-pairs (cons (cons (cons (cons 'a '()) '()) '()) (cons (cons (cons 'b '()) '()) '())))
+(define y (cons 'a '()))
+(define z (cons y y))
+(count-pairs (cons z z))
 ; 7
 
-(count-pairs (make-cycle (list 'a 'b 'c)))
+;(count-pairs (make-cycle (list 'a 'b 'c)))
 ; never returns
-
-; anytime their is a pointer back to pair more than once,
-; either via a cycle or a shared reference, count-pairs will not work
