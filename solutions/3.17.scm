@@ -1,6 +1,5 @@
 ;;; Exercise 3.17
 ;;; Author: Evan Ezell
-
 (define (last-pair x)
   (if (null? (cdr x))
       x
@@ -12,21 +11,22 @@
 
 (define (make-cycle x) (append! x x))
 
-(define (find x visited)
-  (cond ((null? visited) #f)
-        ((eq? x (car visited)) #t)
-        (else (find x (cdr visited)))))
+(define (memq item x)
+  (cond ((null? x) #f)
+        ((eq? item (car x)) #t)
+        (else (memq item (cdr x)))))
 
 (define (count-pairs x)
-  (define (cp-helper x visited)
-    (if (or (not (pair? x)) 
-            (find x visited))
-        0   
-        (begin (append! visited (cons x '()))
-               (+ (cp-helper (car x) visited)
-                  (cp-helper (cdr x) visited)
-                  1))))
-  (cp-helper x (list '())))
+  (let ((visited '()))
+    (define (cp-helper x)
+      (if (or (not (pair? x))
+              (memq x visited))
+          0
+          (begin (set! visited (cons x visited))
+                 (+ (cp-helper (car x))
+                    (cp-helper (cdr x))
+                    1))))
+  (cp-helper x)))
 
 
 (count-pairs (list 'a 'b 'c))
