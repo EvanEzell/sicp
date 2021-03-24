@@ -22,8 +22,8 @@
       (cond ((not (pair? x)) #f)
             ((memq x visited) #t)
             (else (begin (set! visited (cons x visited))
-                       (or (c-helper (car x))
-                           (c-helper (cdr x)))))))
+                         (or (c-helper (car x))
+                             (c-helper (cdr x)))))))
   (c-helper x)))
 
 (cycle? (list 'a 'b 'c))
